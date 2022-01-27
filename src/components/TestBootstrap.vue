@@ -22,6 +22,12 @@
       <p v-else>Aparece se falso</p>
       <button class="btn bg-success" @click="boolFunc">mudar bool</button>
     </div>
+
+    <div class="mt-5 d-flex flex-row flex-wrap">
+      <input class="me-4" type="text" placeholder="Algum texto aqui" ref="inputid">
+      <button class="btn bg-primary me-4" @click="getElement">Mudar aqui</button>
+      <p class="me-4" ref="thisid">Texto que será mudadado</p>
+    </div>
     
   </div>
 </template>
@@ -55,6 +61,13 @@ export default {
 
     boolFunc() {
       this.booldata = !this.booldata;
+    },
+
+    getElement(){
+      var inputx = this.$refs.inputid.value
+      var dd = this.$refs.thisid.textContent
+      this.$refs.thisid.innerText = inputx
+      console.log(inputx);
     },
   },
 };
